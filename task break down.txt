@@ -1,0 +1,4 @@
+1.) Find out how to display a circle in a window
+2.) find out to show a 'beam of light' 
+3.) research the physics for gravitational lensing in 2d
+4.) Maybe look into allowed the user to input values for where the light is shot and mass of object

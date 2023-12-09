@@ -1,3 +1,4 @@
+---------- Session 1 ----------
 1.) Find out how to display a circle in a window
 2.) find out to show a 'beam of light' 
 
@@ -10,3 +11,22 @@
 
 3.) research the physics for gravitational lensing in 2d
 4.) Maybe look into allowed the user to input values for where the light is shot and mass of object
+
+---------- Session 2 ----------
+Decided to switch from gravitational lensing to just 
+normal gravity. In this session I am going to try and
+work out the best architecture for this. I used Chat gpt
+to define some code that kinda works but I want to understand
+it not just use it.
+
+The main takeaway point from the chat gpt script is that
+the pygame library is more suitable than tkinter.
+
+I refactored the code to hopefully be better, I kept the old implementation and put it in the folder 'tkinter_impl..' 
+I also added a sandbox for messing around. This is where i did the majority of the work to try and create a good template
+for our game objects. The canon_setup file is where I have done all the work so far, all it does is take display a canon jpeg
+and centers it to the middle bottom of the screen based on the window size. The architecture of the code is what I am trying 
+to get right, ideally we have isolated classes that handle all their own properties and the main can call them and add them
+to the main game loop. 
+
+Id reccomend this video: https://www.youtube.com/watch?v=4TfZjhw0J-8

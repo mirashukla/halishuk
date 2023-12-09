@@ -1,29 +1,51 @@
+# External
 import pygame
 import sys
+import os
 
-from classes import *
+# Classes
+from Canon import Canon
+from Blackhole import Blackhole
 
-# Constants
-WIDTH, HEIGHT = 500, 400
-FPS = 60
+
+# Initialize Pygame
+pygame.init()
+
+# window dimensions
+WIDTH, HEIGHT = 800, 800
+
+# background color
+RED = (255, 10, 10)
+WHITE = (255, 255, 255)
 
 # Initialize Pygame screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Game Window")
+pygame.display.set_caption("Image Attachment Example")
+clock = pygame.time.Clock()
 
-# Define box
-box = pygame.Rect((300,250,50,50))
+# Create sprite groups
+all_sprites = pygame.sprite.Group()
 
-run = True
+# Create canon
+img_path = os.getcwd() + "/game_pictures/canon.jpg"
+canon = Canon(WIDTH, HEIGHT, img_path)
+all_sprites.add(canon)
 
-while run:
-    
-    pygame.draw.rect(screen, (255,0,0), box)
-    
+# Create blackole
+img_path = os.getcwd() + "/game_pictures/blackhole.png"
+blackhole = Blackhole(WIDTH, HEIGHT, img_path)
+all_sprites.add(blackhole)
+
+# Main game loop
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
-            
-    pygame.display.update()
-            
-pygame.quit()
+            pygame.quit()
+            sys.exit()
+
+    # Draw everything
+    screen.fill(WHITE)
+    all_sprites.draw(screen)
+
+    # Update display
+    pygame.display.flip()

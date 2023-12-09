@@ -30,7 +30,6 @@ class Canon(pygame.sprite.Sprite):
 
 # If this script is run directly this will display the image in game window at the location sepcified
 if __name__ == "__main__":
-    #print(os.getcwd())
     
     # Initialize Pygame
     pygame.init()
@@ -40,6 +39,7 @@ if __name__ == "__main__":
     
     # background color
     RED = (255, 10, 10)
+    WHITE = (255, 255, 255)
     
     # Initialize Pygame screen
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -62,7 +62,7 @@ if __name__ == "__main__":
                 sys.exit()
 
         # Draw everything
-        screen.fill(RED)
+        screen.fill(WHITE)
         all_sprites.draw(screen)
 
         # Update display

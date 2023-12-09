@@ -15,6 +15,7 @@ class Canon(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.start_x(width_of_window)
         self.rect.y = self.start_y(height_of_window)
+        self.velocity = 5  # Speed for left/right movement
         
     def start_x(self,width_of_window):
         img_size_x = self.size_of_image[0]            # Get x value of canon size
@@ -25,6 +26,13 @@ class Canon(pygame.sprite.Sprite):
         img_size_y = self.size_of_image[1]       # Get y value of canon size
         start_y = height_of_window - img_size_y  # Put image at bottom of screen and offset by img size
         return start_y
+    
+    def update(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT] and self.rect.left > 0:
+            self.rect.x -= self.velocity
+        if keys[pygame.K_RIGHT] and self.rect.right < WIDTH:
+            self.rect.x += self.velocity
 
 
 
@@ -40,6 +48,8 @@ if __name__ == "__main__":
     # background color
     RED = (255, 10, 10)
     WHITE = (255, 255, 255)
+    
+    FPS = 60
     
     # Initialize Pygame screen
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -60,6 +70,9 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+                
+        # Update all sprites
+        all_sprites.update()
 
         # Draw everything
         screen.fill(WHITE)
@@ -67,5 +80,9 @@ if __name__ == "__main__":
 
         # Update display
         pygame.display.flip()
+        
+        # Cap the frame rate
+        clock.tick(FPS)
+
 
         

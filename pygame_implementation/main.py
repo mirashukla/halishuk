@@ -17,6 +17,7 @@ WIDTH, HEIGHT = 800, 800
 # background color
 RED = (255, 10, 10)
 WHITE = (255, 255, 255)
+FPS = 60
 
 # Initialize Pygame screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -39,9 +40,19 @@ all_sprites.add(blackhole)
 # Main game loop
 while True:
     for event in pygame.event.get():
+        # if event.type == pygame.QUIT:
+        #     pygame.quit()
+        #     sys.exit()
+        
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                canon.rect.x -= 30
+            elif event.key == pygame.K_RIGHT:
+                canon.rect.x += 30
+
 
     # Draw everything
     screen.fill(WHITE)
@@ -49,3 +60,6 @@ while True:
 
     # Update display
     pygame.display.flip()
+    
+    # Cap the frame rate
+    clock.tick(FPS)

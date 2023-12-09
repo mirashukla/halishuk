@@ -40,20 +40,13 @@ all_sprites.add(blackhole)
 # Main game loop
 while True:
     for event in pygame.event.get():
-        # if event.type == pygame.QUIT:
-        #     pygame.quit()
-        #     sys.exit()
+         if event.type == pygame.QUIT:
+             pygame.quit()
+             sys.exit()
         
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                canon.rect.x -= 30
-            elif event.key == pygame.K_RIGHT:
-                canon.rect.x += 30
-
-
+    # Update all sprites
+    all_sprites.update(WIDTH)
+    
     # Draw everything
     screen.fill(WHITE)
     all_sprites.draw(screen)

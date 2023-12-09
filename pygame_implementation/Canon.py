@@ -27,11 +27,11 @@ class Canon(pygame.sprite.Sprite):
         start_y = height_of_window - img_size_y  # Put image at bottom of screen and offset by img size
         return start_y
     
-    def update(self):
+    def update(self,width_of_window):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and self.rect.left > 0:
             self.rect.x -= self.velocity
-        if keys[pygame.K_RIGHT] and self.rect.right < WIDTH:
+        if keys[pygame.K_RIGHT] and self.rect.right < width_of_window:
             self.rect.x += self.velocity
 
 

@@ -7,7 +7,7 @@ class Blackhole(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        img_path = os.getcwd() + "/game_pictures/blackhole.png"
+        img_path = os.getcwd() + "/pygame_implementation/game_pictures/blackhole.png"
         image = pygame.image.load(img_path)#.convert_alpha() # Load image
         
         self.image = pygame.transform.scale(image, Constants.BLACKHOLE_SIZE)  # Resize image

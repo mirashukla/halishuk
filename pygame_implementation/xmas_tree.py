@@ -7,7 +7,7 @@ class Xmas_tree(pygame.sprite.Sprite):
     
     def __init__(self,x,y):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        image_path = os.getcwd() +"/game_pictures/xmas_tree.jpeg"
+        image_path = os.getcwd() +"/pygame_implementation/game_pictures/xmas_tree.jpeg"
         image = pygame.image.load(image_path).convert() # Load image
         image.set_colorkey((255,255,255))             # Converts background to transparent, assuming white background
         

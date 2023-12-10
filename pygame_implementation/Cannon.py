@@ -6,11 +6,11 @@ import logging
 from constants import Constants
 from xmas_tree import Xmas_tree
 
-class Canon(pygame.sprite.Sprite):
+class Cannon(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        image_path = os.getcwd() +"/game_pictures/canon.jpg"
+        image_path = os.getcwd() +"/pygame_implementation/game_pictures/canon.jpg"
         image = pygame.image.load(image_path).convert() # Load image
         image.set_colorkey((255,255,255))             # Converts background to transparent
         
@@ -40,13 +40,6 @@ class Canon(pygame.sprite.Sprite):
         if keys[pygame.K_RIGHT] and self.rect.right < Constants.WIDTH:
             self.rect.x += self.velocity
             
-        if keys[pygame.K_SPACE] and self.shoot_cooldown == 0:
-            self.shoot_cooldown = Constants.FPS // 4  # Cooldown for shooting
-            xmas_tree = Xmas_tree(self.rect.centerx, self.rect.top)
-            all_sprites.add(xmas_tree)
-            xmas_tree_list.append(xmas_tree)
-            logging.info(f"Number of xmas_trees in memory: {len(xmas_tree_list)}")
-
 
 
 
@@ -66,12 +59,12 @@ if __name__ == "__main__":
 
     # Create sprite groups
     all_sprites = pygame.sprite.Group()
-    xmas_tree_list = []
+   
     
     # Create an object with an attached image
-    canon = Canon()
+    canon = Cannon()
     all_sprites.add(canon)
-
+    
     # Main game loop
     while True:
         for event in pygame.event.get():
@@ -79,19 +72,13 @@ if __name__ == "__main__":
                 pygame.quit()
                 sys.exit()
                 
-        # Update all sprites
-        all_sprites.update()
-        
-            # Handle shooting cooldown
-        if canon.shoot_cooldown > 0:
-            canon.shoot_cooldown -= 1
 
-        # Update cooldown for all instances of Object C
-        for xmas_tree in xmas_tree_list:
-            if xmas_tree.rect.bottom < 0:
-                all_sprites.remove(xmas_tree)
-                xmas_tree_list.remove(xmas_tree)
-                logging.info(f"Number of xmas_trees in memory: {len(xmas_tree_list)}")
+        # canon.xmas_tree_sprites.update()
+        canon.update()
+        
+        #     # Handle shooting cooldown
+        # if canon.shoot_cooldown > 0:
+        #     canon.shoot_cooldown -= 1
 
         # Draw everything
         screen.fill(Constants.BACKGROUND_COLOR)

@@ -4,10 +4,10 @@ import sys
 import os
 
 # Classes
-from Canon import Canon
+from Cannon import Cannon
 from Blackhole import Blackhole
 from constants import Constants
-
+from xmas_tree import Xmas_tree
 
 # Initialize Pygame
 pygame.init()
@@ -19,14 +19,16 @@ clock = pygame.time.Clock()
 
 # Create sprite groups
 all_sprites = pygame.sprite.Group()
+xmas_tree_sprites = pygame.sprite.Group()
 
 # Create game objects
-canon = Canon()
+cannon = Cannon()
 blackhole = Blackhole()
 
-# Add objects to sprite group
-all_sprites.add(canon)
+# Add objects to sprite group 
+all_sprites.add(cannon)
 all_sprites.add(blackhole)
+ 
 
 # Main game loop
 while True:
@@ -34,9 +36,20 @@ while True:
          if event.type == pygame.QUIT:
              pygame.quit()
              sys.exit()
+         elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            # Spawn Xmas tree when space bar is pressed
+            xmas_tree = Xmas_tree(cannon.rect.centerx,cannon.rect.centery)
+            xmas_tree_sprites.add(xmas_tree)
+            all_sprites.add(xmas_tree)
         
     # Update all sprites
-    all_sprites.update()
+    cannon.update()
+    xmas_tree_sprites.update()
+    
+    # Handle shooting cooldown
+    if cannon.shoot_cooldown > 0:
+        cannon.shoot_cooldown -= 1
+
     
     # Draw everything
     screen.fill(Constants.BACKGROUND_COLOR)

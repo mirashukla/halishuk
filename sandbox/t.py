@@ -6,7 +6,7 @@ import math
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 500, 400
+WIDTH, HEIGHT = 800, 800
 FPS = 60
 
 # Colors
@@ -47,10 +47,13 @@ class ObjectB(pygame.sprite.Sprite):
 class ObjectC(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image = pygame.Surface((20, 20), pygame.SRCALPHA)
-        pygame.draw.circle(self.image, RED, (10, 10), 10)
+        self.image = pygame.Surface((40, 60), pygame.SRCALPHA)
+        pygame.draw.polygon(self.image, (0, 128, 0), [(20, 0), (0, 60), (40, 60)])  # Tree body
+        pygame.draw.polygon(self.image, (255, 215, 0), [(10, 0), (0, 20), (20, 20)])  # First layer
+        pygame.draw.polygon(self.image, (255, 215, 0), [(10, 20), (0, 40), (20, 40)])  # Second layer
+        pygame.draw.polygon(self.image, (255, 215, 0), [(10, 40), (0, 60), (20, 60)])  # Third layer
         self.rect = self.image.get_rect(center=(x, y))
-        self.velocity_y = -10  # Initial upward velocity
+        self.velocity_y = -2  # Initial upward velocity
         self.mass = 1
 
     def update(self):

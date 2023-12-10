@@ -5,10 +5,10 @@ from constants import Constants
 
 class Blackhole(pygame.sprite.Sprite):
     
-    def __init__(self,image_path):
+    def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        
-        image = pygame.image.load(image_path)#.convert_alpha() # Load image
+        img_path = os.getcwd() + "/game_pictures/blackhole.png"
+        image = pygame.image.load(img_path)#.convert_alpha() # Load image
         
         self.image = pygame.transform.scale(image, Constants.BLACKHOLE_SIZE)  # Resize image
         self.rect = self.image.get_rect()
@@ -32,10 +32,6 @@ if __name__ == "__main__":
     
     # Initialize Pygame
     pygame.init()
-
-    # background color
-    RED = (255, 10, 10)
-    WHITE = (255, 255, 255)
     
     # Initialize Pygame screen
     screen = pygame.display.set_mode((Constants.WIDTH, Constants.HEIGHT))
@@ -46,8 +42,8 @@ if __name__ == "__main__":
     all_sprites = pygame.sprite.Group()
 
     # Create an object with an attached image
-    img_path = os.getcwd() + "/game_pictures/blackhole.png"
-    object_with_image = Blackhole(img_path)
+    
+    object_with_image = Blackhole()
     all_sprites.add(object_with_image)
 
     # Main game loop

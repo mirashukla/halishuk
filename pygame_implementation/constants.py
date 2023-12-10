@@ -9,6 +9,7 @@ class Constants:
         HEIGHT = 800
         CANON_SIZE = (100,100)
         BLACKHOLE_SIZE = (150,150)
+        XMAS_TREE_SIZE = (50,50)
         FPS = 60
         BACKGROUND_COLOR = colors['BLUE']
         

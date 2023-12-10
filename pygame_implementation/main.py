@@ -6,22 +6,19 @@ import os
 # Classes
 from Canon import Canon
 from Blackhole import Blackhole
+from constants import Constants
 
 
 # Initialize Pygame
 pygame.init()
 
-# window dimensions
-WIDTH, HEIGHT = 800, 800
-
 # background color
 RED = (255, 10, 10)
 WHITE = (255, 255, 255)
-FPS = 60
 
 # Initialize Pygame screen
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Image Attachment Example")
+screen = pygame.display.set_mode((Constants.WIDTH, Constants.HEIGHT))
+pygame.display.set_caption("DOINNGGGG")
 clock = pygame.time.Clock()
 
 # Create sprite groups
@@ -29,12 +26,12 @@ all_sprites = pygame.sprite.Group()
 
 # Create canon
 img_path = os.getcwd() + "/game_pictures/canon.jpg"
-canon = Canon(WIDTH, HEIGHT, img_path)
+canon = Canon(img_path)
 all_sprites.add(canon)
 
 # Create blackole
 img_path = os.getcwd() + "/game_pictures/blackhole.png"
-blackhole = Blackhole(WIDTH, HEIGHT, img_path)
+blackhole = Blackhole(img_path)
 all_sprites.add(blackhole)
 
 # Main game loop
@@ -45,7 +42,7 @@ while True:
              sys.exit()
         
     # Update all sprites
-    all_sprites.update(WIDTH)
+    all_sprites.update()
     
     # Draw everything
     screen.fill(WHITE)
@@ -55,4 +52,4 @@ while True:
     pygame.display.flip()
     
     # Cap the frame rate
-    clock.tick(FPS)
+    clock.tick(Constants.FPS)

@@ -45,7 +45,7 @@ while True:
     all_sprites.update()
     
     # Draw everything
-    screen.fill(WHITE)
+    screen.fill(Constants.BACKGROUND_COLOR)
     all_sprites.draw(screen)
 
     # Update display

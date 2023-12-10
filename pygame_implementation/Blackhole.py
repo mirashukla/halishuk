@@ -58,7 +58,7 @@ if __name__ == "__main__":
                 sys.exit()
 
         # Draw everything
-        screen.fill(RED)
+        screen.fill(Constants.BACKGROUND_COLOR)
         all_sprites.draw(screen)
 
         # Update display

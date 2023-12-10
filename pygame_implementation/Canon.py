@@ -8,7 +8,7 @@ class Canon(pygame.sprite.Sprite):
     def __init__(self, image_path):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
         image = pygame.image.load(image_path).convert() # Load image
-        image.set_colorkey((255, 255, 255))             # Converts background to transparent
+        image.set_colorkey((255,255,255))             # Converts background to transparent
         
         self.image = pygame.transform.scale(image, Constants.CANON_SIZE)  # Resize image
         self.rect = self.image.get_rect()
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         all_sprites.update()
 
         # Draw everything
-        screen.fill(RED)
+        screen.fill(Constants.BACKGROUND_COLOR)
         all_sprites.draw(screen)
 
         # Update display

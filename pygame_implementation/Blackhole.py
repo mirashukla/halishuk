@@ -43,8 +43,8 @@ if __name__ == "__main__":
 
     # Create an object with an attached image
     
-    object_with_image = Blackhole()
-    all_sprites.add(object_with_image)
+    blackhole = Blackhole()
+    all_sprites.add(blackhole)
 
     # Main game loop
     while True:

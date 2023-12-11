@@ -4,7 +4,6 @@ import os
 import logging
 
 from constants import Constants
-from xmas_tree import Xmas_tree
 
 class Cannon(pygame.sprite.Sprite):
     
@@ -76,10 +75,6 @@ if __name__ == "__main__":
         # canon.xmas_tree_sprites.update()
         canon.update()
         
-        #     # Handle shooting cooldown
-        # if canon.shoot_cooldown > 0:
-        #     canon.shoot_cooldown -= 1
-
         # Draw everything
         screen.fill(Constants.BACKGROUND_COLOR)
         all_sprites.draw(screen)

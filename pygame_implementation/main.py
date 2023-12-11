@@ -1,7 +1,6 @@
 # External
-import pygame
 import sys
-import os
+import pygame
 
 # Classes
 from Cannon import Cannon
@@ -28,7 +27,6 @@ blackhole = Blackhole()
 # Add objects to sprite group 
 all_sprites.add(cannon)
 all_sprites.add(blackhole)
- 
 
 # Main game loop
 while True:
@@ -38,7 +36,7 @@ while True:
              sys.exit()
          elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             # Spawn Xmas tree when space bar is pressed
-            xmas_tree = Xmas_tree(cannon.rect.centerx,cannon.rect.centery)
+            xmas_tree = Xmas_tree([cannon.rect.centerx,cannon.rect.centery])
             xmas_tree_sprites.add(xmas_tree)
             all_sprites.add(xmas_tree)
         
@@ -50,7 +48,6 @@ while True:
     if cannon.shoot_cooldown > 0:
         cannon.shoot_cooldown -= 1
 
-    
     # Draw everything
     screen.fill(Constants.BACKGROUND_COLOR)
     all_sprites.draw(screen)
@@ -60,3 +57,4 @@ while True:
     
     # Cap the frame rate
     clock.tick(Constants.FPS)
+    

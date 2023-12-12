@@ -1,6 +1,8 @@
+# External
 import pygame
 import sys
-import os
+
+# Classes
 from constants import Constants
 from window import Window
 
@@ -11,10 +13,11 @@ class Blackhole(Window):
 
         self.load_image("blackhole.png", (50,50))
         self.set_start_position(self.blackhole_start_pos)
-        
     
-
-
+    
+    
+    
+    
 # If this script is run directly this will display the image in game window at the location sepcified
 if __name__ == "__main__":
     
@@ -22,7 +25,7 @@ if __name__ == "__main__":
     pygame.init()
     
     # Initialize Pygame screen
-    screen = pygame.display.set_mode((Constants.WIDTH, Constants.HEIGHT))
+    screen = pygame.display.set_mode((Window.WIDTH, Window.HEIGHT))
     pygame.display.set_caption("Image Attachment Example")
     clock = pygame.time.Clock()
 

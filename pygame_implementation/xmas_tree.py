@@ -1,11 +1,9 @@
 import pygame
 import sys
-import os
 import numpy as np
 
 
 from constants import Constants
-from Blackhole import Blackhole
 from window import Window
 
 class Xmas_tree(Window):
@@ -16,7 +14,7 @@ class Xmas_tree(Window):
         self.load_image("xmas_tree.jpeg", (20,20))
         self.set_start_position(start_coords)
         
-        self.velocity_y = -3  # intial speed for up movement
+        self.velocity_y = -1  # intial speed for up movement
         self.velocity_x = 0  # Speed for left/right movement
 
 
@@ -34,8 +32,8 @@ class Xmas_tree(Window):
         r = np.sqrt(dx**2 + dy**2)
 
         # Calculate gravitational force components
-        fx = G * (500 * self.blackhole_mass) * dx / r**3
-        fy = G * (500 * self.blackhole_mass) * dy / r**3
+        fx = G * (1 * self.blackhole_mass) * dx / r**3
+        fy = G * (1 * self.blackhole_mass) * dy / r**3
 
         # Update velocities of A
         xV += fx * dt
@@ -50,10 +48,11 @@ class Xmas_tree(Window):
 
     #     print("xmas tree updated!")
         #self.rect.centery += self.velocity_y
-        
-
-
-
+    
+    
+    
+    
+    
 # If this script is run directly this will display the image in game window at the location sepcified
 if __name__ == "__main__":
     

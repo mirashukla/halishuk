@@ -5,13 +5,7 @@ class Constants:
                   'WHITE': (255,255,255),
                   'BLACK': (0,0,0)}
         
-        WIDTH = 800
-        HEIGHT = 800
-        CANON_SIZE = (75,75)
-        BLACKHOLE_SIZE = (50,50)
-        BLACKHOLE_MASS = 10000000000
-        XMAS_TREE_SIZE = (20,20)
-        FPS = 60
+        FPS = 120
         BACKGROUND_COLOR = colors['WHITE']
         
         

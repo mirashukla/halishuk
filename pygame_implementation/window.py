@@ -8,7 +8,7 @@ class Window(pygame.sprite.Sprite):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
         
         self.blackhole_start_pos = [self.WIDTH // 2, self.HEIGHT // 2]
-        self.blackhole_mass = 10000000000
+        self.blackhole_mass = 1000000000000
         self.canon_stat_pos = [self.WIDTH // 2, self.HEIGHT]
         
     def set_start_position(self,start_coords):

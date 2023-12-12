@@ -14,7 +14,7 @@ pygame.init()
 
 # Initialize Pygame screen
 screen = pygame.display.set_mode((Window.WIDTH, Window.HEIGHT))
-pygame.display.set_caption("DOINNGGGG")
+pygame.display.set_caption("DOINNGGGG") 
 clock = pygame.time.Clock()
 
 # Create sprite groups

@@ -1,6 +1,5 @@
 import pygame
 import sys
-import os
 import logging
 
 from constants import Constants
@@ -11,7 +10,7 @@ class Cannon(Window):
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
         
-        self.velocity = 5  # Speed for left/right movement
+        self.velocity = 1  # Speed for left/right movement
         self.shoot_cooldown = 0
         self.load_image("canon.jpg", (75, 75))
         self.set_start_position(self.canon_stat_pos)
@@ -23,12 +22,13 @@ class Cannon(Window):
         if keys[pygame.K_LEFT] and self.rect.left > 0:
             self.rect.x -= self.velocity
             
-        if keys[pygame.K_RIGHT] and self.rect.right < Constants.WIDTH:
+        if keys[pygame.K_RIGHT] and self.rect.right < Window.WIDTH:
             self.rect.x += self.velocity
-            
-
-
-
+    
+    
+    
+    
+    
 # If this script is run directly this will display the image in game window at the location sepcified
 if __name__ == "__main__":
     
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     pygame.init()
     
     # Initialize Pygame screen
-    screen = pygame.display.set_mode((Constants.WIDTH, Constants.HEIGHT))
+    screen = pygame.display.set_mode((Window.WIDTH, Window.HEIGHT))
     pygame.display.set_caption("Isolated Canon")
     clock = pygame.time.Clock()
 

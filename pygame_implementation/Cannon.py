@@ -9,27 +9,22 @@ class Cannon(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
+        self.load_image()
+        self.set_start_position()
+        self.velocity = 5  # Speed for left/right movement
+        self.shoot_cooldown = 0
+        
+    def load_image(self):
         image_path = os.getcwd() +"/pygame_implementation/game_pictures/canon.jpg"
         image = pygame.image.load(image_path).convert() # Load image
         image.set_colorkey((255,255,255))             # Converts background to transparent
         
         self.image = pygame.transform.scale(image, Constants.CANON_SIZE)  # Resize image
+    def set_start_position(self):
         self.rect = self.image.get_rect()
-        self.rect.x = self.start_x()
-        self.rect.y = self.start_y()
-        self.velocity = 5  # Speed for left/right movement
-        self.shoot_cooldown = 0
+        self.rect.centerx = Constants.WIDTH // 2
+        self.rect.bottom = Constants.HEIGHT
         
-    def start_x(self):
-        img_size_x = Constants.CANON_SIZE[0]            # Get x value of canon size
-        start_x = (Constants.WIDTH -img_size_x) // 2  # Put img in the center of screen and offset by img size
-        return start_x
-    
-    def start_y(self):
-        img_size_y = Constants.CANON_SIZE[1]       # Get y value of canon size
-        start_y = Constants.HEIGHT - img_size_y  # Put image at bottom of screen and offset by img size
-        return start_y
-    
     def update(self):
         keys = pygame.key.get_pressed()
         

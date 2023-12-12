@@ -2,29 +2,17 @@ import pygame
 import sys
 import os
 from constants import Constants
+from window import Window
 
-class Blackhole(pygame.sprite.Sprite):
+class Blackhole(Window):
     
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        img_path = os.getcwd() + "/pygame_implementation/game_pictures/blackhole.png"
-        image = pygame.image.load(img_path)#.convert_alpha() # Load image
-        
-        self.image = pygame.transform.scale(image, Constants.BLACKHOLE_SIZE)  # Resize image
-        self.rect = self.image.get_rect()
-        self.rect.x = self.start_x()
-        self.rect.y = self.start_y()
-        
-    def start_x(self):
-        img_size_x = Constants.BLACKHOLE_SIZE[0]            # Get x value of canon size
-        start_x = (Constants.WIDTH -img_size_x) // 2  # Put img in the center of screen and offset by img size
-        return start_x
-    
-    def start_y(self):
-        img_size_y = Constants.BLACKHOLE_SIZE[1]       # Get y value of canon size
-        start_y = (Constants.HEIGHT -img_size_y) // 2  # Put image at bottom of screen and offset by img size
-        return start_y
 
+        self.load_image("blackhole.png", (50,50))
+        self.set_start_position(self.blackhole_start_pos)
+        
+    
 
 
 # If this script is run directly this will display the image in game window at the location sepcified

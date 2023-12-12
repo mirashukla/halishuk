@@ -4,26 +4,18 @@ import os
 import logging
 
 from constants import Constants
+from window import Window
 
-class Cannon(pygame.sprite.Sprite):
+class Cannon(Window):
     
     def __init__(self):
         super().__init__()  # Calls parent class construtor (allows inheritance of more properties)
-        self.load_image()
-        self.set_start_position()
+        
         self.velocity = 5  # Speed for left/right movement
         self.shoot_cooldown = 0
-        
-    def load_image(self):
-        image_path = os.getcwd() +"/pygame_implementation/game_pictures/canon.jpg"
-        image = pygame.image.load(image_path).convert() # Load image
-        image.set_colorkey((255,255,255))             # Converts background to transparent
-        
-        self.image = pygame.transform.scale(image, Constants.CANON_SIZE)  # Resize image
-    def set_start_position(self):
-        self.rect = self.image.get_rect()
-        self.rect.centerx = Constants.WIDTH // 2
-        self.rect.bottom = Constants.HEIGHT
+        self.load_image("canon.jpg", (75, 75))
+        self.set_start_position(self.canon_stat_pos)
+           
         
     def update(self):
         keys = pygame.key.get_pressed()

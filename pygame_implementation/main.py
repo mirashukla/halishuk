@@ -7,12 +7,13 @@ from Cannon import Cannon
 from Blackhole import Blackhole
 from constants import Constants
 from xmas_tree import Xmas_tree
+from window import Window
 
 # Initialize Pygame
 pygame.init()
 
 # Initialize Pygame screen
-screen = pygame.display.set_mode((Constants.WIDTH, Constants.HEIGHT))
+screen = pygame.display.set_mode((Window.WIDTH, Window.HEIGHT))
 pygame.display.set_caption("DOINNGGGG")
 clock = pygame.time.Clock()
 
@@ -36,7 +37,7 @@ while True:
              sys.exit()
          elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             # Spawn Xmas tree when space bar is pressed
-            xmas_tree = Xmas_tree([cannon.rect.centerx,cannon.rect.centery])
+            xmas_tree = Xmas_tree([cannon.rect.centerx,cannon.rect.top])
             xmas_tree_sprites.add(xmas_tree)
             all_sprites.add(xmas_tree)
         
